@@ -33,7 +33,7 @@ export const handleClear = (e, formFields) => {
   emailConsentCheckbox.checked = false;
 };
 
-export const handleSubmit = (e, formFields) => {
+export const handleSubmit = async (e, formFields) => {
   e.preventDefault();
 
   try {
@@ -42,15 +42,22 @@ export const handleSubmit = (e, formFields) => {
     const email = emailField.value;
     const date = bdayField.value.split("-");
     const checkBoxMarked = emailConsentCheckbox.checked;
+    const URL = `https://my-json-server.typicode.com/JustUtahCoders/interview-users-api/users`;
 
     if (isFormValid(name, email, date, checkBoxMarked)) {
-      const user = {
+      const postBody = {
         id: 1,
         name,
         email,
         birthDate: date.join("-"),
         emailConsent: checkBoxMarked,
       };
+
+      const response = await fetch(URL, {
+        method: "POST",
+        body: JSON.stringify(postBody),
+      });
+      const result = await response.json();
 
       disableSubmitButton(false);
       handleClear(e, formFields);
