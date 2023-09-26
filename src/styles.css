@@ -1,0 +1,53 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 10rem;
+}
+
+.form-container {
+  border: solid;
+  padding: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.clear-button {
+  margin-right: .5rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+input {
+  margin-bottom: 1rem;
+}
